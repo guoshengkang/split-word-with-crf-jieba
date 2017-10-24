@@ -60,7 +60,11 @@ code:main.py/split_word.py
 000004-->000004_output
 注:可以四个线程同时开
 另:提交文件不能超过100M,可以通过linux传送文件,命令如下:
+将本地文件拷贝到远程
 scp -i password_file copy_file kangguosheng@54.222.159.84:/home/kangguosheng
+从远程将文件拷回本地
+scp -i kangguosheng kangguosheng@54.222.159.84:/home/kangguosheng/tmp/000000_0 /home/kang/Desktop
+
 
 【Step3】:将5个分词结果分别导入hive表的5个分区;
 注:导入前,保证文件编码格式为utf-8
