@@ -1,28 +1,28 @@
-¡ï¡ï¡ï¡ï¡ïTASK1:ÑµÁ·CRF++Ä£ĞÍ¡ï¡ï¡ï¡ï¡ï
-¡¾Step1¡¿:³éÈ¡Ñù±¾500000(raw_titleÎÄ¼ş),²ÉÓÃ°¢Àï·Ö´Êapi½øĞĞ·Ö´Ê
-ĞÂ½¨¿ÕÎÄ¼ş:splitted_title
+â˜…â˜…â˜…â˜…â˜…TASK1:è®­ç»ƒCRF++æ¨¡å‹â˜…â˜…â˜…â˜…â˜…
+ã€Step1ã€‘:æŠ½å–æ ·æœ¬500000(raw_titleæ–‡ä»¶),é‡‡ç”¨é˜¿é‡Œåˆ†è¯apiè¿›è¡Œåˆ†è¯
+æ–°å»ºç©ºæ–‡ä»¶:splitted_title
 code:taobao_split_word.py
-·Ö´Ê½á¹û±£´æÖÁ:splitted_title
-·Ö³ÉÑµÁ·ºÍ²âÊÔÁ½¸öÎÄ¼ş:splitted_title_4_trainºÍsplitted_title_4_test
-¡¾Step2¡¿:½«·Ö´Ê½á¹û×ª»¯ÎªCRF++µÄÑµÁ·Êı¾İ
-ÔËĞĞsplitted_to_train.py ĞŞ¸Äsplitted_title_4_trainÎÄ¼şµÄ¸ñÊ½,Êä³ötrain_file_with_no_id
-ÔËĞĞformat_change.py ĞŞ¸ÄÎÄ¼ştrain_file_with_no_id,Êä³ötrain_file
-Í¬ÑùµÄ·½·¨,²úÉú²âÊÔÎÄ¼ştest_file
+åˆ†è¯ç»“æœä¿å­˜è‡³:splitted_title
+åˆ†æˆè®­ç»ƒå’Œæµ‹è¯•ä¸¤ä¸ªæ–‡ä»¶:splitted_title_4_trainå’Œsplitted_title_4_test
+ã€Step2ã€‘:å°†åˆ†è¯ç»“æœè½¬åŒ–ä¸ºCRF++çš„è®­ç»ƒæ•°æ®
+è¿è¡Œsplitted_to_train.py ä¿®æ”¹splitted_title_4_trainæ–‡ä»¶çš„æ ¼å¼,è¾“å‡ºtrain_file_with_no_id
+è¿è¡Œformat_change.py ä¿®æ”¹æ–‡ä»¶train_file_with_no_id,è¾“å‡ºtrain_file
+åŒæ ·çš„æ–¹æ³•,äº§ç”Ÿæµ‹è¯•æ–‡ä»¶test_file
 
-¡¾Step3¡¿:½«400000ÌõÊı¾İ×÷ÎªCRF++ÑµÁ·Ä£ĞÍ,½«100000Ìõ×÷Îª²âÊÔÊı¾İ
-½«CRF++-0.58ÎÄ¼ş¼ĞÏÂµÄcrf_learnºÍcrf_testÉèÎª»·¾³±äÁ¿
-×¢:ÈôÔÚlinux»·¾³ÔËĞĞÃüÁîĞĞ, ±£Ö¤train_fileºÍtest_file¾ùÎªunix¸ñÊ½
-ÑµÁ·Ä£ĞÍÃüÁî:crf_learn -f  3 -c 2.5 -p 4 template train_file model
-²âÊÔÄ£ĞÍÃüÁî:crf_test -m model test_file >> test_result.txt
-Í³¼Æ²âÊÔ½á¹ûÃüÁî:./conlleval.pl -d "\t" < test_result.txt
+ã€Step3ã€‘:å°†400000æ¡æ•°æ®ä½œä¸ºCRF++è®­ç»ƒæ¨¡å‹,å°†100000æ¡ä½œä¸ºæµ‹è¯•æ•°æ®
+å°†CRF++-0.58æ–‡ä»¶å¤¹ä¸‹çš„crf_learnå’Œcrf_testè®¾ä¸ºç¯å¢ƒå˜é‡
+æ³¨:è‹¥åœ¨linuxç¯å¢ƒè¿è¡Œå‘½ä»¤è¡Œ, ä¿è¯train_fileå’Œtest_fileå‡ä¸ºunixæ ¼å¼
+è®­ç»ƒæ¨¡å‹å‘½ä»¤:crf_learn -f  3 -c 2.5 -p 4 template train_file model
+æµ‹è¯•æ¨¡å‹å‘½ä»¤:crf_test -m model test_file >> test_result.txt
+ç»Ÿè®¡æµ‹è¯•ç»“æœå‘½ä»¤:./conlleval.pl -d "\t" < test_result.txt
 
-¡¾Step4¡¿:¸ù¾İ²âÊÔ½á¹û,Ñ¡ÔñÒ»¸ö×¼È·ÂÊ(accuracy)×î¸ßµÄÄ£ĞÍ
-·½·¨:²ÎÊıÉèÖÃ´Ó´ó·¶Î§ÕÒµ½·åÖµ,È»ºóËõĞ¡ÖÁ·åÖµÖÜÎ§Ñ°ÕÒ×îÓÅ²ÎÊı
+ã€Step4ã€‘:æ ¹æ®æµ‹è¯•ç»“æœ,é€‰æ‹©ä¸€ä¸ªå‡†ç¡®ç‡(accuracy)æœ€é«˜çš„æ¨¡å‹
+æ–¹æ³•:å‚æ•°è®¾ç½®ä»å¤§èŒƒå›´æ‰¾åˆ°å³°å€¼,ç„¶åç¼©å°è‡³å³°å€¼å‘¨å›´å¯»æ‰¾æœ€ä¼˜å‚æ•°
 
 ---------------------------------------------------------------------
 
-¡ï¡ï¡ï¡ï¡ïTASK2:²úÉújieba´Ê¿â¡ï¡ï¡ï¡ï¡ï
-¡¾Step1¡¿:Ñ¡È¡100000Êı¾İ,Ê¹ÓÃCRF++Ä£ĞÍ½øĞĞ·Ö´Ê;
+â˜…â˜…â˜…â˜…â˜…TASK2:äº§ç”Ÿjiebaè¯åº“â˜…â˜…â˜…â˜…â˜…
+ã€Step1ã€‘:é€‰å–100000æ•°æ®,ä½¿ç”¨CRF++æ¨¡å‹è¿›è¡Œåˆ†è¯;
 insert overwrite local directory '/home/kangguosheng/tmp'
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 COLLECTION ITEMS TERMINATED BY '\073'
@@ -33,15 +33,15 @@ from tmp_kgs_new_titles
 order by rand()
 limit 100000;
 
-¡¾Step2¡¿:½«·Ö´Ê½á¹û½øĞĞÍ³¼Æ´ÊÆµ;
+ã€Step2ã€‘:å°†åˆ†è¯ç»“æœè¿›è¡Œç»Ÿè®¡è¯é¢‘;
 code:freq_stat.py
 
-¡¾Step3¡¿:½«Æµ´Î³öÏÖ³¬¹ıÒ»´ÎµÄ´ÊÓï×÷ÎªjiebaµÄ´Ê¿â.
+ã€Step3ã€‘:å°†é¢‘æ¬¡å‡ºç°è¶…è¿‡ä¸€æ¬¡çš„è¯è¯­ä½œä¸ºjiebaçš„è¯åº“.
 
 ----------------------------------------------------------------------
 
-¡ï¡ï¡ï¡ï¡ïTASK3:CRF++&½á°Í·Ö´Ê¡ï¡ï¡ï¡ï¡ï
-¡¾Step1¡¿:»ñÈ¡idl_title_agg±íÖĞËùÓĞÊı¾İ(7575857Ìõ),ĞÎ³É5¸öÊı¾İÎÄ¼ş;
+â˜…â˜…â˜…â˜…â˜…TASK3:CRF++&ç»“å·´åˆ†è¯â˜…â˜…â˜…â˜…â˜…
+ã€Step1ã€‘:è·å–idl_title_aggè¡¨ä¸­æ‰€æœ‰æ•°æ®(7575857æ¡),å½¢æˆ5ä¸ªæ•°æ®æ–‡ä»¶;
 set mapreduce.job.reduces=5;
 insert overwrite local directory '/home/kangguosheng/tmp'
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
@@ -51,23 +51,24 @@ STORED AS TEXTFILE
 DISTINCT char_id,char_raw
 FROM idl_title_agg;
 
-¡¾Step2¡¿:¶Ô5¸öÊı¾İÎÄ¼ş½øĞĞ-CRF++&½á°Í·Ö´Ê;
+ã€Step2ã€‘:å¯¹5ä¸ªæ•°æ®æ–‡ä»¶è¿›è¡Œ-CRF++&ç»“å·´åˆ†è¯;
 code:main.py/split_word.py
 000000-->000000_output
 000001-->000001_output
 000002-->000002_output
 000003-->000003_output
 000004-->000004_output
-×¢:¿ÉÒÔËÄ¸öÏß³ÌÍ¬Ê±¿ª
-Áí:Ìá½»ÎÄ¼ş²»ÄÜ³¬¹ı100M,¿ÉÒÔÍ¨¹ılinux´«ËÍÎÄ¼ş,ÃüÁîÈçÏÂ:
-½«±¾µØÎÄ¼ş¿½±´µ½Ô¶³Ì
+æ³¨:å¯ä»¥å››ä¸ªçº¿ç¨‹åŒæ—¶å¼€
+å¦:æäº¤æ–‡ä»¶ä¸èƒ½è¶…è¿‡100M,å¯ä»¥é€šè¿‡linuxä¼ é€æ–‡ä»¶,å‘½ä»¤å¦‚ä¸‹:
+chmod 600 password_file
+å°†æœ¬åœ°æ–‡ä»¶æ‹·è´åˆ°è¿œç¨‹
 scp -i password_file copy_file kangguosheng@54.222.159.84:/home/kangguosheng
-´ÓÔ¶³Ì½«ÎÄ¼ş¿½»Ø±¾µØ
-scp -i kangguosheng kangguosheng@54.222.159.84:/home/kangguosheng/tmp/000000_0 /home/kang/Desktop
+ä»è¿œç¨‹å°†æ–‡ä»¶æ‹·å›æœ¬åœ°
+scp -i password_file kangguosheng@54.222.159.84:/home/kangguosheng/tmp/000000_0 /home/kang/Desktop
 
 
-¡¾Step3¡¿:½«5¸ö·Ö´Ê½á¹û·Ö±ğµ¼Èëhive±íµÄ5¸ö·ÖÇø;
-×¢:µ¼ÈëÇ°,±£Ö¤ÎÄ¼ş±àÂë¸ñÊ½Îªutf-8
+ã€Step3ã€‘:å°†5ä¸ªåˆ†è¯ç»“æœåˆ†åˆ«å¯¼å…¥hiveè¡¨çš„5ä¸ªåˆ†åŒº;
+æ³¨:å¯¼å…¥å‰,ä¿è¯æ–‡ä»¶ç¼–ç æ ¼å¼ä¸ºutf-8
 load data local inpath '/home/kangguosheng/000000_output' 
 overwrite into table tmp_kgs_crf_jieba partition(ds='00');
 
@@ -85,7 +86,7 @@ COLLECTION ITEMS TERMINATED BY '\073'
 MAP KEYS TERMINATED BY '\072'
 STORED AS TEXTFILE;
 
-¡¾Step4¡¿:½«tmp_kgs_crf_jieba±íµÄÊı¾İµ¼Èëµ½idl_title_crf_jieba_agg±íÖĞ.
+ã€Step4ã€‘:å°†tmp_kgs_crf_jiebaè¡¨çš„æ•°æ®å¯¼å…¥åˆ°idl_title_crf_jieba_aggè¡¨ä¸­.
 drop table idl_title_crf_jieba_agg;
 CREATE TABLE idl_title_crf_jieba_agg
 (
