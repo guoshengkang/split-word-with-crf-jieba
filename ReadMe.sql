@@ -87,22 +87,22 @@ MAP KEYS TERMINATED BY '\072'
 STORED AS TEXTFILE;
 
 【Step4】:将tmp_kgs_crf_jieba表的数据导入到idl_title_crf_jieba_agg表中.
-drop table idl_title_crf_jieba_agg;
-CREATE TABLE idl_title_crf_jieba_agg
+drop table idl_title_split_agg;
+CREATE TABLE idl_title_split_agg
 (
 title_id STRING COMMENT 'title ID',
 crf_token ARRAY<STRING> COMMENT 'crf_token',
 jieba_token ARRAY<STRING> COMMENT 'jieba_token'
 )
-comment "crf_jieba_split"
+comment "crf-jieba"
 PARTITIONED BY (ds STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
 COLLECTION ITEMS TERMINATED BY '\073'
 MAP KEYS TERMINATED BY '\072'
 STORED AS TEXTFILE;
 
-ALTER TABLE idl_title_crf_jieba_agg DROP PARTITION (ds="2017-10-20" );
-INSERT INTO idl_title_crf_jieba_agg PARTITION (ds="2017-10-20")
+ALTER TABLE idl_title_split_agg DROP PARTITION (ds="2017-10-20" );
+INSERT INTO idl_title_split_agg PARTITION (ds="2017-10-20")
 SELECT 
 title_id,
 split(crf_token,'\\|') AS crf_token,
