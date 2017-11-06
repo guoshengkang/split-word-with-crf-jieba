@@ -42,6 +42,7 @@ code:freq_stat.py
 
 ★★★★★TASK3:CRF++&结巴分词★★★★★
 【Step1】:获取idl_title_agg表中所有数据(7575857条),形成5个数据文件;
+--设置reduce的数量,即产生的结果文件数量
 set mapreduce.job.reduces=5;
 insert overwrite local directory '/home/kangguosheng/tmp'
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
