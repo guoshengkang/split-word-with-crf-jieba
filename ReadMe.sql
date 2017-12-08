@@ -1,4 +1,4 @@
-★★★★★TASK1:训练CRF++模型★★★★★
+★★★★★TASK1:训练CRF++模型★★★★★ 
 【Step1】:抽取样本500000(raw_title文件),采用阿里分词api进行分词
 新建空文件:splitted_title
 code:taobao_split_word.py
@@ -61,7 +61,7 @@ code:main.py/split_word.py
 000004-->000004_output
 注:可以四个线程同时开
 另:提交文件不能超过100M,可以通过linux传送文件,命令如下:
-chmod 600 password_file
+chmod 600 password_file (必须设置文件只有属主有读写权限,体现了linux的安全特性)
 将本地文件拷贝到远程
 scp -i password_file copy_file kangguosheng@54.222.159.84:/home/kangguosheng
 从远程将文件拷回本地
